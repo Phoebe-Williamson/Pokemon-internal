@@ -10,7 +10,7 @@ public class Cards
 {
     // instance variables 
     private String name;
-    private String price;
+    private int price;
     private String image;
     private int locX = 50;
     private int locY = 50;
@@ -21,33 +21,51 @@ public class Cards
     /**
      * Constructor for objects of class Cards.
      */
-    public Cards() {
+    public Cards(String nm, int prc, String img) {
         // initialise instance variables
+        this.name = nm;
+        this.price = prc;
         
+        // if the user selects cancel instead of giving an image
+        if (img == null) {
+            this.image = DEFALUT_IMAGE;
+        } else {
+            this.image = img;
+        }
     }
-
-    /**
-     * Constructer overloading the objects of class Cards.
-     */
     
     /**
      * Getter for name of pokémon.
      * @return String of the pokémon.
      */
+    public String getName() {
+        return this.name;
+        
+    }
     
     /**
      * Display image on GUI.
      */
+    public void displayCard() {
+        UI.drawImage(this.image, this.locY, this.locY, this.WIDTH, this.HEIGHT);
+    }
     
     /**
      * Getter for monetary value.
-     * @return int of tthe price.
+     * @return int of the price.
      */
+    public int getPrice() {
+        return this.price;
+    }
     
     /**
      * Getter for the image.
      * @returns the image
      */
+    public String getImage() {
+        return this.image;
+        
+    }
     
     /**
      * Checks if the image is clicked on.

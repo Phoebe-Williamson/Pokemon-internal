@@ -23,7 +23,7 @@ public class Library
         cardsMap = new HashMap<Integer, Cards>();    // initialise hashmap
         
         // Creates some Pokémon cards
-        Cards c1 = new Cards("Plasma Storm Charizard", 572, "charizard.jpeg");
+        Cards c1 = new Cards("PLASMA STORM CHARIZARD", 572, "charizard.jpeg");
         Cards c2 = new Cards("BULBASUR", 8, "bulbasaur.jpg");
         Cards c3 = new Cards("GRENINJA", 3, "greninja.jpg");
         

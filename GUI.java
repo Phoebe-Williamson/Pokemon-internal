@@ -1,6 +1,6 @@
 import ecs100.*;
 /**
- * Write a description of class GUI here.
+ * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
  * @version (9/5/23)
@@ -17,13 +17,15 @@ public class GUI
     public GUI()
     {
         // initialise instance variables
-        cards = new Cards();
+        library = new Library();
         UI.initialise();
         UI.setMouseListener(this::doMouse);
         
         // buttons for the user to click
+        UI.addButton("Clear all", this::clearAll);
+        UI.addButton("Quit", UI::quit);
         
-        //
+        // this statement is printed out each time the program is run.
         UI.println("Welcome to the Pokémon card library. \n CLick a Button to start your adventure");
     }
 
@@ -42,6 +44,7 @@ public class GUI
      */
     public void addCard() {
         
+        String imgFileName = UIFileChooser.open("Choose Image File: ");
     }
     
     /**

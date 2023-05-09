@@ -10,7 +10,7 @@ import ecs100.*;
 public class Library
 {
     // instance variables 
-    private HashMap<Integer, Cards> cardsHashMap; // declares the hashmap
+    private HashMap<Integer, Cards> cardsMap; // declares the hashmap
     private int currCardId; // store the current id of the card being added
     private Cards currCard;  // store the instance of the found card
 
@@ -20,11 +20,17 @@ public class Library
     public Library()
     {
         // initialise instance variables
-        cardsHashMap = new HashMap<Integer, Cards>();    // initialise hashmap
+        cardsMap = new HashMap<Integer, Cards>();    // initialise hashmap
         
         // Creates some Pokémon cards
+        Cards c1 = new Cards("Plasma Storm Charizard", 572, "charizard.jpeg");
+        Cards c2 = new Cards("BULBASUR", 8, "bulbasaur.jpg");
+        Cards c3 = new Cards("GRENINJA", 3, "greninja.jpg");
         
         // adds the cards to collection
+        cardsMap.put(1, c1);
+        cardsMap.put(2, c2);
+        cardsMap.put(3, c3);
     }
 
     /**

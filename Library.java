@@ -5,7 +5,7 @@ import ecs100.*;
  * Allows the user to add, find, and print all pokémon crads.
  *
  * @author (Phoebe Williamson)
- * @version (9/5/23)
+ * @version (10/5/23)
  */
 public class Library
 {
@@ -31,13 +31,16 @@ public class Library
         cardsMap.put(1, c1);
         cardsMap.put(2, c2);
         cardsMap.put(3, c3);
+        
+        this.currCardId = 3;
     }
 
     /**
      * Adds cards the hashmap.
      */
-    public void addCard() {
-        
+    public void addCard(String nm, int prc, String img) {
+        currCardId++;
+        cardsMap.put(currCardId, new Cards(nm, prc, img));
     }
     
     /** 

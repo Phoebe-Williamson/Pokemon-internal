@@ -56,5 +56,7 @@ public class Library
      * getter for the currrent card.
      * @return current instance of card found.
      */
-    
+    public Cards getCard(){
+        return this.currCard;
+    }
 }

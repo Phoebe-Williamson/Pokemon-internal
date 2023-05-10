@@ -66,6 +66,21 @@ public class GUI
     /**
      * Checks that the input for monetray value is valid and then returns it.
      */
+    public int addPrice() {
+        final int MIN_PRICE = 1;
+        final int MAX_PRICE = 9;
+        
+        boolean getPrc = true;
+        int price = UI.askInt("Enter the monetary value of the card: ");
+        while (getPrc) {
+            if (price > MAX_PRICE || price < MIN_PRICE) {
+                price = UI.askInt("Enter the monetary value of the card (between 1 - 9 dollars): ");
+            } else {
+                getPrc = false;
+            }
+        }
+        return price;
+    }
     
     /**
      * finds the pokémon card based on the name.

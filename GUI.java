@@ -22,6 +22,8 @@ public class GUI
         UI.setMouseListener(this::doMouse);
         
         // buttons for the user to click
+        UI.addButton("Add card", this::addCard);
+        UI.addButton("Print All", this::printCards);
         UI.addButton("Clear all", this::clearAll);  // button which clears the screen
         UI.addButton("Quit", UI::quit); // button which quits the program
         
@@ -43,8 +45,11 @@ public class GUI
      * The methods for name, value and image will be added to the adding card.
      */
     public void addCard() {
-        
+        String name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
+        int price = UI.askInt("Enter the monetary value of the card: ");
+ 
         String imgFileName = UIFileChooser.open("Choose Image File: ");
+        library.addCard(name, price, imgFileName);
     }
     
     /**
@@ -68,7 +73,7 @@ public class GUI
      */
     public int addPrice() {
         final int MIN_PRICE = 1;
-        final int MAX_PRICE = 9;
+        final int MAX_PRICE = 5275000;
         
         boolean getPrc = true;
         int price = UI.askInt("Enter the monetary value of the card: ");
@@ -99,7 +104,11 @@ public class GUI
             }
         }
     }
+    
     /**
      * Calls method in library to print out all cards
      */
+    public void printCards() {
+        library.printAll();
+    }
 }

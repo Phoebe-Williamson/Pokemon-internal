@@ -3,7 +3,7 @@ import ecs100.*;
  * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
- * @version (9/5/23)
+ * @version (10/5/23)
  */
 public class GUI
 {
@@ -22,11 +22,11 @@ public class GUI
         UI.setMouseListener(this::doMouse);
         
         // buttons for the user to click
-        UI.addButton("Clear all", this::clearAll);
-        UI.addButton("Quit", UI::quit);
+        UI.addButton("Clear all", this::clearAll);  // button which clears the screen
+        UI.addButton("Quit", UI::quit); // button which quits the program
         
         // this statement is printed out each time the program is run.
-        UI.println("Welcome to the Pokémon card library. \n CLick a Button to start your adventure");
+        UI.println("Welcome to the Pokémon card library. \nClick a Button to start your adventure");
     }
 
     /**
@@ -50,6 +50,18 @@ public class GUI
     /**
      *  Check that the input for name is valid and then returns it.
      */
+    public String addCardName() {
+        boolean getCard = true;
+        String name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
+        while(getCard = true) {
+            if (name.equals("")) {
+                name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
+            } else {
+                getCard = false;
+            }
+        }
+        return name;
+    }
     
     /**
      * Checks that the input for monetray value is valid and then returns it.
@@ -61,7 +73,7 @@ public class GUI
      */
     
     /** 
-     * mouse listener in response  
+     * mouse listener in response to being clicked
      */
     private void doMouse(String action, double x, double y) {
         if (action.equals("clicked")) {

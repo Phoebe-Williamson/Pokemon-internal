@@ -5,7 +5,7 @@ import ecs100.*;
  * Allows the user to add, find, and print all pokémon crads.
  *
  * @author (Phoebe Williamson)
- * @version (10/5/23)
+ * @version (11/5/23)
  */
 public class Library
 {
@@ -51,6 +51,16 @@ public class Library
     /**
      * prints all cards in hashmap.
      */
+    public void printAll() {
+        UI.println("\nHere are all of the cards in the collection");
+        for (int cardId : cardsMap.keySet()) {
+            currCard = cardsMap.get(cardId);
+            UI.println("-------------------");
+            UI.println("Card name: " + currCard.getName());
+            UI.println("Card value: $" + currCard.getPrice());  
+            }
+        }
+    
     
     /**
      * getter for the currrent card.

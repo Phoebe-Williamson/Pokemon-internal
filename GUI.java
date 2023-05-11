@@ -3,7 +3,7 @@ import ecs100.*;
  * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
- * @version (10/5/23)
+ * @version (11/5/23)
  */
 public class GUI
 {
@@ -14,8 +14,7 @@ public class GUI
     /**
      * Constructor for objects of class GUI.
      */
-    public GUI()
-    {
+    public GUI() {
         // initialise instance variables
         library = new Library();
         UI.initialise();
@@ -45,7 +44,16 @@ public class GUI
      * The methods for name, value and image will be added to the adding card.
      */
     public void addCard() {
+        boolean getCard = true;
         String name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
+        while(getCard = true) {
+            if(name.equals("")) {
+                  name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
+              } else {
+                  break;
+              }
+            }
+        
         int price = UI.askInt("Enter the monetary value of the card: ");
  
         String imgFileName = UIFileChooser.open("Choose Image File: ");

@@ -44,15 +44,7 @@ public class GUI
      * The methods for name, value and image will be added to the adding card.
      */
     public void addCard() {
-        boolean getCard = true;
-        String name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
-        while(getCard = true) {
-            if(name.equals("")) {
-                  name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
-              } else {
-                  break;
-              }
-            }
+        String name = addCardName();
         
         int price = UI.askInt("Enter the monetary value of the card: ");
  
@@ -70,7 +62,7 @@ public class GUI
             if (name.equals("")) {
                 name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
             } else {
-                getCard = false;
+                break;
             }
         }
         return name;

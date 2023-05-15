@@ -4,7 +4,7 @@ import ecs100.*;
  * A card contains a name, monetary value and image.
  *
  * @author (Phoebe Williamson)
- * @version (9/5/23)
+ * @version (15/5/23)
  */
 public class Cards
 {
@@ -16,7 +16,7 @@ public class Cards
     private int locY = 50;
     private final double WIDTH = 220;
     private final double HEIGHT = 300;
-    private static final String DEFALUT_IMAGE = "pokemon_card.jpg";
+    private static final String DEFALUT_IMAGE = "pokemon_card.jpeg";
 
     /**
      * Constructor for objects of class Cards.

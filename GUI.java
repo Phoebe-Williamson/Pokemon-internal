@@ -3,7 +3,7 @@ import ecs100.*;
  * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
- * @version (11/5/23)
+ * @version (15/5/23)
  */
 public class GUI
 {
@@ -46,7 +46,7 @@ public class GUI
     public void addCard() {
         String name = addCardName();
         
-        int price = UI.askInt("Enter the monetary value of the card: ");
+        int price = addPrice();
  
         String imgFileName = UIFileChooser.open("Choose Image File: ");
         library.addCard(name, price, imgFileName);
@@ -79,7 +79,7 @@ public class GUI
         int price = UI.askInt("Enter the monetary value of the card: ");
         while (getPrc) {
             if (price > MAX_PRICE || price < MIN_PRICE) {
-                price = UI.askInt("Enter the monetary value of the card (between 1 - 9 dollars): ");
+                price = UI.askInt("Enter the monetary value of the card (between 1 - 5,275,000 dollars): ");
             } else {
                 getPrc = false;
             }
@@ -91,6 +91,19 @@ public class GUI
      * finds the pokémon card based on the name.
      * Printout the monetary value and displays the image.
      */
+    public void findCard() {
+        String cardName = UI.askString("Name of pokemon card: ").toUpperCase();
+        if(library.findCard(cardName)) {
+            UI.println("-------------------");
+            UI.println("Found Card!");
+            cards = library.getCard();
+            UI.println("Card name: " + cards.getName());
+            UI.println("Price of card: " + cards.getPrice());
+            cards.displayCard();
+        } else {
+            UI.println("card not found!");
+        }
+    }
     
     /** 
      * mouse listener in response to being clicked

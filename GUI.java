@@ -22,6 +22,7 @@ public class GUI
         
         // buttons for the user to click
         UI.addButton("Add card", this::addCard);
+        UI.addButton("Find card", this::findCard);
         UI.addButton("Print All", this::printCards);
         UI.addButton("Clear all", this::clearAll);  // button which clears the screen
         UI.addButton("Quit", UI::quit); // button which quits the program

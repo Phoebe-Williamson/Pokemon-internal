@@ -48,13 +48,15 @@ public class GUI
         boolean continueAdding = true;
         String name = addCardName();
         
-        if (continueAdding = true) {
+        if (name == null) {
+            continueAdding = false;
+        } else {
             int price = addPrice();
             
             UI.println("Chose the image file for the pokemon");
             String imgFileName = UIFileChooser.open("Choose Image File: ");
-            library.addCard(name, price, imgFileName);
-        }        
+            library.addCard(name, price, imgFileName); 
+        }
     }
     
     /**
@@ -67,7 +69,8 @@ public class GUI
             if (library.findCard(name)) {
                 UI.println("Card is already in collection.");
                 getCard = false;
-                System.exit(0); // found on https://stackoverflow.com/questions/7937029/how-to-break-out-or-exit-a-method-in-java
+                return null;
+                // System.exit(0);  found on https://stackoverflow.com/questions/7937029/how-to-break-out-or-exit-a-method-in-java
             } else if (name.equals("")) {
                 name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
             } else {

@@ -3,7 +3,7 @@ import ecs100.*;
  * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
- * @version (15/5/23)
+ * @version (16/5/23)
  */
 public class GUI
 {
@@ -45,12 +45,16 @@ public class GUI
      * The methods for name, value and image will be added to the adding card.
      */
     public void addCard() {
+        boolean continueAdding = true;
         String name = addCardName();
         
-        int price = addPrice();
- 
-        String imgFileName = UIFileChooser.open("Choose Image File: ");
-        library.addCard(name, price, imgFileName);
+        if (continueAdding = true) {
+            int price = addPrice();
+            
+            UI.println("Chose the image file for the pokemon");
+            String imgFileName = UIFileChooser.open("Choose Image File: ");
+            library.addCard(name, price, imgFileName);
+        }        
     }
     
     /**
@@ -59,11 +63,14 @@ public class GUI
     public String addCardName() {
         boolean getCard = true;
         String name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
-        while(getCard = true) {
-            if (name.equals("")) {
+        while(getCard) {
+            if (library.findCard(name)) {
+                UI.println("Card is already in collection.");
+                getCard = false;
+            } else if (name.equals("")) {
                 name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
             } else {
-                break;
+                getCard = false;
             }
         }
         return name;

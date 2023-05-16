@@ -67,6 +67,7 @@ public class GUI
             if (library.findCard(name)) {
                 UI.println("Card is already in collection.");
                 getCard = false;
+                System.exit(0); // found on https://stackoverflow.com/questions/7937029/how-to-break-out-or-exit-a-method-in-java
             } else if (name.equals("")) {
                 name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
             } else {

@@ -3,10 +3,10 @@ import ecs100.*;
  * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
- * @version (16/5/23)
+ * @version (18/5/23)
  */
-public class GUI
-{
+
+public class GUI {
     // instance variables - replace the example below with your own
     private Library library;
     private Cards cards;
@@ -26,6 +26,7 @@ public class GUI
         UI.addButton("Print All", this::printCards);
         UI.addButton("Clear all", this::clearAll);  // button which clears the screen
         UI.addButton("Quit", UI::quit); // button which quits the program
+         
         
         // this statement is printed out each time the program is run.
         UI.println("Welcome to the Pokémon card library. \nClick a Button to start your adventure");
@@ -34,7 +35,8 @@ public class GUI
     /**
      * Clears the screen.
      */
-    public void clearAll(){
+    public void clearAll() {
+        // clear both text and graphics pane
         UI.clearText();
         UI.clearGraphics();
         cards = null;
@@ -53,8 +55,9 @@ public class GUI
         } else {
             int price = addPrice();
             
-            UI.println("Chose the image file for the pokemon");
-            String imgFileName = UIFileChooser.open("Choose Image File: ");
+            // tells user what is expected when image file chooser appears
+            UI.println("Chose the image file for the pokemon, or click cancel to not select one."); 
+            String imgFileName = UIFileChooser.open();
             library.addCard(name, price, imgFileName); 
         }
     }
@@ -64,15 +67,16 @@ public class GUI
      */
     public String addCardName() {
         boolean getCard = true;
-        String name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
-        while(getCard) {
+        String name = UI.askString("\nEnter the Pokemon card name: ").toUpperCase();
+        while (getCard) {
             if (library.findCard(name)) {
                 UI.println("Card is already in collection.");
+                UI.println("Click another button to continue.");
                 getCard = false;
                 return null;
-                // System.exit(0);  found on https://stackoverflow.com/questions/7937029/how-to-break-out-or-exit-a-method-in-java
-            } else if (name.equals("")) {
-                name = UI.askString("Enter the Pokemon card name: ").toUpperCase();
+            } else if (name.isBlank()) {
+                // if input is white spaces 
+                name = UI.askString("Enter a valid name for the Pokemon card: ").toUpperCase();
             } else {
                 getCard = false;
             }
@@ -104,8 +108,8 @@ public class GUI
      * Printout the monetary value and displays the image.
      */
     public void findCard() {
-        String cardName = UI.askString("Name of pokemon card: ").toUpperCase();
-        if(library.findCard(cardName)) {
+        String cardName = UI.askString("\nName of pokemon card: ").toUpperCase();
+        if (library.findCard(cardName)) {
             UI.println("-------------------");
             UI.println("Found Card!");
             cards = library.getCard();
@@ -113,18 +117,18 @@ public class GUI
             UI.println("Price of card: " + cards.getPrice());
             cards.displayCard();
         } else {
-            UI.println("card not found!");
+            UI.println("Card not found!");
         }
     }
     
     /** 
-     * mouse listener in response to being clicked
+     * mouse listener in response to being clicked.
      */
     private void doMouse(String action, double x, double y) {
         if (action.equals("clicked")) {
             if (cards != null) {
                 if (cards.isOnCard(x,y)) {
-                    this.clearAll();
+                    this.clearAll(); 
                 }
             }
         }

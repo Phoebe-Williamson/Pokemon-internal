@@ -5,7 +5,7 @@ import java.util.HashMap;
  * Allows the user to add, find, and print all pokémon cards.
  *
  * @author (Phoebe Williamson)
- * @version (18/5/23)
+ * @version (19/5/23)
  */
 
 public class Library {
@@ -23,7 +23,7 @@ public class Library {
         
         // Creates some Pokémon cards
         Cards c1 = new Cards("PLASMA STORM CHARIZARD", 572, "charizard.jpeg");
-        Cards c2 = new Cards("BULBASUR", 8, "bulbasaur.jpeg");
+        Cards c2 = new Cards("BULBASAUR", 8, "bulbasaur.png");
         Cards c3 = new Cards("GRENINJA", 3, "greninja.jpg");
         
         // adds the cards to collection
@@ -31,6 +31,7 @@ public class Library {
         cardsMap.put(2, c2);
         cardsMap.put(3, c3);
         
+        // updates the cadrId
         this.currCardId = 3;
     }
 

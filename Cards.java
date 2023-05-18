@@ -4,18 +4,18 @@ import ecs100.*;
  * A card contains a name, monetary value and image.
  *
  * @author (Phoebe Williamson)
- * @version (15/5/23)
+ * @version (18/5/23)
  */
-public class Cards
-{
+
+public class Cards {
     // instance variables 
     private String name;
     private int price;
     private String image;
     private int locX = 50;
     private int locY = 50;
-    private final double WIDTH = 220;
-    private final double HEIGHT = 300;
+    private static final double WIDTH = 220;
+    private static final double HEIGHT = 300;
     private static final String DEFALUT_IMAGE = "pokemon_card.jpeg";
 
     /**
@@ -36,6 +36,7 @@ public class Cards
     
     /**
      * Getter for name of pokémon.
+
      * @return String of the pokémon.
      */
     public String getName() {
@@ -52,6 +53,7 @@ public class Cards
     
     /**
      * Getter for monetary value.
+
      * @return int of the price.
      */
     public int getPrice() {
@@ -60,6 +62,7 @@ public class Cards
     
     /**
      * Getter for the image.
+
      * @returns the image
      */
     public String getImage() {
@@ -70,7 +73,7 @@ public class Cards
     /**
      * Checks if the image is clicked on.
      */
-    public boolean isOnCard(double x, double y ) {
+    public boolean isOnCard(double x, double y) {
         if ((x >= locX) && (x <= locX + WIDTH) && (y >= locY) && (y <= locY + HEIGHT)) {
             return true;
             

@@ -41,7 +41,6 @@ public class Cards {
      */
     public String getName() {
         return this.name;
-        
     }
     
     /**
@@ -72,6 +71,8 @@ public class Cards {
     
     /**
      * Checks if the image is clicked on.
+     * Returns true if clicked on,
+     * Or returns false if not clicked on.
      */
     public boolean isOnCard(double x, double y) {
         if ((x >= locX) && (x <= locX + WIDTH) && (y >= locY) && (y <= locY + HEIGHT)) {

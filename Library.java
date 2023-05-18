@@ -1,30 +1,29 @@
-import java.util.HashMap;
 import ecs100.*;
+import java.util.HashMap;
 /**
  * Holds collection of pokémon cards in a hashamp.
- * Allows the user to add, find, and print all pokémon crads.
+ * Allows the user to add, find, and print all pokémon cards.
  *
  * @author (Phoebe Williamson)
- * @version (15/5/23)
+ * @version (18/5/23)
  */
-public class Library
-{
+
+public class Library {
     // instance variables 
     private HashMap<Integer, Cards> cardsMap; // declares the hashmap
     private int currCardId; // store the current id of the card being added
     private Cards currCard;  // store the instance of the found card
 
     /**
-     * Constructor for objects of class Library
+     * Constructor for objects of class Library.
      */
-    public Library()
-    {
+    public Library() {
         // initialise instance variables
         cardsMap = new HashMap<Integer, Cards>();    // initialise hashmap
         
         // Creates some Pokémon cards
         Cards c1 = new Cards("PLASMA STORM CHARIZARD", 572, "charizard.jpeg");
-        Cards c2 = new Cards("BULBASUR", 8, "bulbasaur.jpg");
+        Cards c2 = new Cards("BULBASUR", 8, "bulbasaur.jpeg");
         Cards c3 = new Cards("GRENINJA", 3, "greninja.jpg");
         
         // adds the cards to collection
@@ -45,15 +44,17 @@ public class Library
     
     /** 
      * looks for card in hashmap.
+
      * @return boolean if found
      */
-    public boolean findBook(String name) {
+    public boolean findCard(String name) {
         for (int cardId : cardsMap.keySet()) {
             if (cardsMap.get(cardId).getName().equals(name)) {
                 currCard = cardsMap.get(cardId);
                 return true; // if found in the hashmap
             }
         }
+        
         return false; // if not found
     }
     
@@ -74,9 +75,10 @@ public class Library
     
     /**
      * getter for the currrent card.
+
      * @return current instance of card found.
      */
-    public Cards getCard(){
+    public Cards getCard() {
         return this.currCard;
     }
 }

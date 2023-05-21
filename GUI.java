@@ -3,7 +3,7 @@ import ecs100.*;
  * Class to handle the GUI functionality.
  *
  * @author (Phoebe Williamson)
- * @version (19/5/23)
+ * @version (21/5/23)
  */
 
 public class GUI {
@@ -59,7 +59,7 @@ public class GUI {
             int price = addPrice();
             
             // tells user what is expected when image file chooser appears
-            UI.println("Chose the image file for the pokemon, or click cancel to not select one."); 
+            UI.println("Choose the image file for the pokémon, or click cancel to get default image."); 
             String imgFileName = UIFileChooser.open();
             library.addCard(name, price, imgFileName); 
         }
@@ -70,7 +70,7 @@ public class GUI {
      */
     public String addCardName() {
         boolean getCard = true;
-        String name = UI.askString("\nEnter the Pokemon card name: ").toUpperCase();
+        String name = UI.askString("\nEnter the Pokémon card name: ").toUpperCase();
         while (getCard) {
             if (library.findCard(name)) {
                 UI.println("Card is already in collection.");
@@ -80,7 +80,7 @@ public class GUI {
                 return null;
             } else if (name.isBlank()) {
                 // if input is white spaces 
-                name = UI.askString("Enter a valid name for the Pokemon card: ").toUpperCase();
+                name = UI.askString("Enter a valid name for the Pokémon card: ").toUpperCase();
             } else {
                 getCard = false;  // if a valid input for name is eneterd
             }
@@ -101,8 +101,8 @@ public class GUI {
         int price = UI.askInt("Enter the monetary value of the card: ");
         while (getPrc) {
             if (price > MAX_PRICE || price < MIN_PRICE) {
-                // print line ou tif it lower or higher than the min and max prices
-                price = UI.askInt("Enter the monetary value of the card (between 1 - 5,275,000 dollars): ");
+                // print line out if it lower or higher than the min and max prices
+                price = UI.askInt("Enter the monetary value of the card (between 1 - 5,275,000 dollars) to the nearest dollar: ");
             } else {
                 getPrc = false; // ends loop as valid price is entered
             }
@@ -116,7 +116,7 @@ public class GUI {
      */
     public void findCard() {
         // checks if card is in hasmap 
-        String cardName = UI.askString("\nName of pokemon card: ").toUpperCase();
+        String cardName = UI.askString("\nName of pokémon card: ").toUpperCase();
         if (library.findCard(cardName)) {
             // prints out card info and image if found
             UI.println("-------------------");
@@ -137,7 +137,7 @@ public class GUI {
     private void doMouse(String action, double x, double y) {
         if (action.equals("clicked")) {
             if (cards != null) {
-                if (cards.isOnCard(x,y)) {
+                if (cards.isOnCard(x, y)) {
                     // runs clearAll function if clciked on
                     this.clearAll(); 
                 }
@@ -146,7 +146,7 @@ public class GUI {
     }
     
     /**
-     * Calls method in library to print out all cards
+     * Calls method in library to print out all cards.
      */
     public void printCards() {
         library.printAll();

@@ -4,7 +4,7 @@ import ecs100.*;
  * A card contains a name, monetary value and image.
  *
  * @author (Phoebe Williamson)
- * @version (18/5/23)
+ * @version (21/5/23)
  */
 
 public class Cards {

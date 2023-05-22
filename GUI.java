@@ -59,7 +59,7 @@ public class GUI {
             int price = addPrice();
             
             // tells user what is expected when image file chooser appears
-            UI.println("Choose the image file for the pokémon, or click cancel to get default image."); 
+            UI.println("Choose image file for the pokémon, or click cancel to get default image."); 
             String imgFileName = UIFileChooser.open();
             library.addCard(name, price, imgFileName); 
         }
@@ -102,7 +102,8 @@ public class GUI {
         while (getPrc) {
             if (price > MAX_PRICE || price < MIN_PRICE) {
                 // print line out if it lower or higher than the min and max prices
-                price = UI.askInt("Enter the monetary value of the card (between 1 - 5,275,000 dollars) to the nearest dollar: ");
+                UI.print("Enter the monetary value of the card (between 1 - ");
+                price = UI.askInt("5,275,000 dollars) to the nearest dollar: ");
             } else {
                 getPrc = false; // ends loop as valid price is entered
             }
